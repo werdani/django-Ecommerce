@@ -1,0 +1,15 @@
+.all_products_pagination
+{
+    margin: 0 auto;
+}
+
+.login_form,.forget_password,.reset_password,.signup_form,.track_order,.edit_profile_form
+{
+    margin: 0 auto;
+}
+
+.order_success
+{
+    text-align: center;
+}
+
