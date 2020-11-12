@@ -85,7 +85,7 @@
                     {% endif %}
                       
                       <div class="card-body">
-                      <h5 class="card-title">{{product}}</h5>
+                      <h5 class="card-title"><a href="{% url 'products:product_detail' product.id %}">{{product}}</a></h5>
                       <p class="card-text">{{product.PRDDesc}}</p>
                       <a href="#" class="btn btn-primary"> Add To Card </a>
                       </div>

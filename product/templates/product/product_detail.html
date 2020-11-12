@@ -54,14 +54,16 @@
           <div class="row"> 
 
                 <div class="col-md-6">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
+                  {% if product_details.PRDimag %}
+                    <img src="{{product_details.PRDimag.url}}" class="card-img-top" alt="Card imag cap">
+                  {% else %}
+                  <img src="{% static 'site_static/images/no.jpg'%}" class="card-img-top" alt="Card imag cap">
+                  {% endif%}
                 </div>
 
                 <div class="col-md-6">
-                    <h1> Product Title </h1>
-                    <h4> Product Category </h4>
-
-                    <p> Item Variant </p>
+                    <h1> {{product_details.PRDName}} </h1>
+                    <h4> {{product_details.PRDcategory}}</h4>
                     <div class="">
                         <form>
                                 <div class="form-group">
@@ -75,8 +77,8 @@
          
           </div>
           <div class="row mt-5">
-              <h3> Product Description </h3>
-              <p class="p-2">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+              <h3> Product Description </h3><br>
+              <p class="p-2">{{product_details.PRDDesc}}</p>
           </div>
       </div>
       <hr>
