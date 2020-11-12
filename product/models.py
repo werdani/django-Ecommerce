@@ -11,6 +11,7 @@ class Product(models.Model):
     # to import settings app >>
     PRDBrand = models.ForeignKey('settings.Brand',on_delete=models.CASCADE,verbose_name=_("Brand"),blank=True, null=True)
     PRDDesc = models.TextField(max_length=1000,verbose_name=_('product description'))
+    PRDimag = models.ImageField(upload_to='product/' ,verbose_name=_("Image"),blank=True, null=True)
     PRDPrice = models.DecimalField(max_digits=5,decimal_places=2,verbose_name=_('product price'))
     PRDCost = models.DecimalField(max_digits=5,decimal_places=2,verbose_name=_('product cost'))
     PRDCreated = models.DateTimeField(verbose_name=_('created at'))

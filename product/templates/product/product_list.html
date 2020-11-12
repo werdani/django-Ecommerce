@@ -51,7 +51,7 @@
             </li>
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Muu'Hamed
+                  Ammar
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">Profile</a>
@@ -71,94 +71,28 @@
     <!-- Cards -->
       <div class="container mt-5">
           <div class="row"> 
+            {% for product in product_list  %}
+                  
+                <div class="col-md-3 mt-3">
+                  <div class="card">
+                    
+                    {% if product.PRDimag %}
+                      <img src="{{product.PRDimag.url}}" class="card-img-top product_img" alt="...">
 
-            <div class="col-md-3 mt-3">
-                <div class="card">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary"> Add To Card </a>
-                    </div>
-                </div>
-            </div>
+                    {% else %}
+                      <img src="{% static 'site_static/images/no.jpg'%}" class="card-img-top product_img" alt="...">
 
-            <div class="col-md-3 mt-3">
-                <div class="card">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary"> Add To Card </a>
-                    </div>
-                </div>
-            </div>
+                    {% endif %}
+                      
+                      <div class="card-body">
+                      <h5 class="card-title">{{product}}</h5>
+                      <p class="card-text">{{product.PRDDesc}}</p>
+                      <a href="#" class="btn btn-primary"> Add To Card </a>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %}
 
-            <div class="col-md-3 mt-3">
-                <div class="card">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary"> Add To Card </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 mt-3">
-                <div class="card">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary"> Add To Card </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 mt-3">
-                <div class="card">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary"> Add To Card </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 mt-3">
-                <div class="card">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary"> Add To Card </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 mt-3">
-                <div class="card">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary"> Add To Card </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 mt-3">
-                <div class="card">
-                    <img src="images/ios.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary"> Add To Card </a>
-                    </div>
-                </div>
-            </div>
 
           </div>
       </div>
