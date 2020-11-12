@@ -10,6 +10,7 @@ def product_list(request):
 
 
 
-def product_detail(request):
+def product_detail(request,id):
+    product_details = Product.objects.get(id=id)
 
-    return render(request,'product/product_detail.html',{})
+    return render(request,'product/product_detail.html',{'product_details':product_details})
