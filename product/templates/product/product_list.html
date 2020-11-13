@@ -83,11 +83,11 @@
                 <div class="card-body text-center">
                   <!--Category & Title-->
                   <a href="" class="grey-text">
-                    <h5>{{product.PRDBrand}}</h5>
+                    <h5>{{product.PRDcategory}}</h5>
                   </a>
                   <h5>
                     <strong>
-                      <a href="{% url 'products:product_detail' product.id %}" class="dark-grey-text">{{product.PRDName}}
+                      <a href="{% url 'products:product_detail' product.PRDSlug %}" class="dark-grey-text">{{product.PRDName}}
                         <span class="badge badge-pill danger-color">NEW</span>
                       </a>
                     </strong>
