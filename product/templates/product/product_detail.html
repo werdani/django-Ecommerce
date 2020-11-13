@@ -29,22 +29,36 @@
           <div class="p-4">
 
             <div class="mb-3">
-              <a href="">
-                <span class="badge purple mr-1">Category 2</span>
-              </a>
+              {% if product_details.PRDdiscounetPrice > 0 %}
+                  <a href="">
+                    <span class="badge green mr-1"> SALE</span>
+                  </a>
+              {% endif %}
+              {% if product_details.PRDIsnew %}
               <a href="">
                 <span class="badge blue mr-1">New</span>
               </a>
+              {% endif %}
+              {% if product_details.PRDBestsaler %}
               <a href="">
                 <span class="badge red mr-1">Bestseller</span>
               </a>
+              {% endif %}
             </div>
             <p class="lead font-weight-bold">{{product_details.PRDName}}</p>
             <p class="lead">
-              <span class="mr-1">
-                <del>$200</del>
-              </span>
-              <span>${{product_details.PRDPrice}}</span>
+              
+                
+                {% if product_details.PRDdiscounetPrice > 0 %}
+                    <span class="mr-1">
+                      <del>${{product_details.PRDPrice}}</del>
+                    </span>
+                    <span>${{product_details.PRDdiscounetPrice}}</span>
+                {% else%}
+                    <span>${{product_details.PRDPrice}}</span>
+                {% endif %}
+                  
+               
             </p>
 
             <p class="lead font-weight-bold">Description</p>

@@ -88,8 +88,19 @@
                   <h5>
                     <strong>
                       <a href="{% url 'products:product_detail' product.PRDSlug %}" class="dark-grey-text">{{product.PRDName}}
-                        <span class="badge badge-pill danger-color">NEW</span>
                       </a>
+                      <p>
+                        {% if product.PRDdiscounetPrice > 0 %}
+                        <span class="badge badge-pill green">SALE</span>
+                        {% endif %}
+                        {% if product.PRDIsnew %}
+                        <span class="badge badge-pill danger-color">NEW</span>
+                        {% endif %}
+                        {% if product.PRDBestsaler %}
+                        <span class="badge badge-pill orange">Bestselar</span>
+                        {% endif %}
+                        
+                      </p>
                     </strong>
                   </h5>
 

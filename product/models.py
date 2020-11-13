@@ -13,9 +13,13 @@ class Product(models.Model):
     PRDDesc = models.TextField(max_length=1000,verbose_name=_('product description'))
     PRDimag = models.ImageField(upload_to='product/' ,verbose_name=_("Image"),blank=True, null=True)
     PRDPrice = models.DecimalField(max_digits=5,decimal_places=2,verbose_name=_('product price'))
+    PRDdiscounetPrice = models.DecimalField(max_digits=5,decimal_places=2,verbose_name=_('product discounte'))
     PRDCost = models.DecimalField(max_digits=5,decimal_places=2,verbose_name=_('product cost'))
     PRDCreated = models.DateTimeField(verbose_name=_('created at'))
     PRDSlug = models.SlugField(verbose_name=_("slug"),blank=True, null=True)
+    PRDIsnew = models.BooleanField(verbose_name=_("product new"),blank=True)
+    PRDBestsaler = models.BooleanField(verbose_name=_("product bestsaler"),blank=False)
+
     class Meta:
         verbose_name = _("Product") # for single 
         verbose_name_plural = _("Products") # for collection
