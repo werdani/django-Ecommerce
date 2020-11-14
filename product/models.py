@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify
+from django.urls import reverse
+#from django.core.urlresolvers import reverse
+
 
 # Create your models here.
 
@@ -19,16 +22,20 @@ class Product(models.Model):
     PRDSlug = models.SlugField(verbose_name=_("slug"),blank=True, null=True)
     PRDIsnew = models.BooleanField(verbose_name=_("product new"),blank=True)
     PRDBestsaler = models.BooleanField(verbose_name=_("product bestsaler"),blank=False)
-
-    class Meta:
-        verbose_name = _("Product") # for single 
-        verbose_name_plural = _("Products") # for collection
-
     ### def for slug 
     def save(self,*args,**kwargs):
         if not self.PRDSlug:
             self.PRDSlug = slugify(self.PRDName)
         super(Product,self).save(*args,**kwargs)
+   
+    class Meta:
+        verbose_name = _("Product") # for single 
+        verbose_name_plural = _("Products") # for collection
+
+   
+    def get_absolute_url(self):
+
+        return reverse('products:product_detail', kwargs={'slug': self.PRDSlug})
 
 
     def __str__(self):

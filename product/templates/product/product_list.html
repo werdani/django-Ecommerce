@@ -87,7 +87,7 @@
                   </a>
                   <h5>
                     <strong>
-                      <a href="{% url 'products:product_detail' product.PRDSlug %}" class="dark-grey-text">{{product.PRDName}}
+                      <a href="{{product.get_absolute_url}}" class="dark-grey-text">{{product.PRDName}}
                       </a>
                       <p>
                         {% if product.PRDdiscounetPrice > 0 %}
