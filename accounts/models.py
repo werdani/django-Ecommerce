@@ -5,6 +5,9 @@ from django.urls.base import reverse
 import datetime
 from django_countries.fields import CountryField
 from django.template.defaultfilters import slugify
+#for signals.
+from django.db.models.signals import post_save
+
 # Create your models here.
 
 
@@ -30,3 +33,12 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse("accountes:Profile_detail", kwargs={"slug": self.slug})
+
+#def for signals.
+def add_profile(sender,**kwargs):
+ #if create user signals send 'created' for add_profile.
+    if kwargs['created']:
+        user_profile =Profile.objects.create(user=kwargs['instance'])
+
+#to connect this function and signals use post_save.
+post_save.connect(add_profile,sender=User)
