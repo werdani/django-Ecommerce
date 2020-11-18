@@ -18,7 +18,7 @@ class Profile(models.Model):
     
     def save(self,*args,**kwargs):
         if not self.slug:
-            self.slug = slugify(self.user)
+            self.slug = slugify(self.user.username)
         super(Profile,self).save(*args,**kwargs)
 
     class Meta:
